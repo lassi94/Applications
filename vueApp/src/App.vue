@@ -37,8 +37,9 @@
       </div>
     </nav>
 
-
-    <router-view/>
+    <transition name="router-anim">
+      <router-view/>
+    </transition>
 
     <footer class="footer">
       <div class="container">
@@ -110,5 +111,33 @@ a.r-item
     
     .fab
       font-size: 2em
+
+.page
+  width: inherit
+
+.router-anim-enter-active
+  animation: coming 1s
+  animation-delay: .5s
+  opacity: 0
+
+.router-anim-leave-active
+  animation: going 1s
+
+@keyframes going
+  from
+    transform: translateX(0)
+
+  to
+    transform: translateX(-50px)
+    opacity: 0
+
+@keyframes coming
+  from
+    transform: translateX(-50px)
+    opacity: 0
+
+  to
+    transform: translateX(0)
+    opacity: 1
 
 </style>
